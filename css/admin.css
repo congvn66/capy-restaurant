@@ -11,7 +11,7 @@
 }
 
 .wrapper{
-    border: 1px solid black;
+
     padding: 1%;
     width: 80%;
     margin: 0 auto;
@@ -19,6 +19,50 @@
 
 .text-center {
     text-align: center;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/* css for menu */
+
+.menu{
+    border-bottom: 1px solid orange;
+}
+
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.menu ul li a:hover{
+    color: #d35400;
+}
+
+/* css for main content */
+.main-content{
+    background-color: #ecf0f1;
+    padding: 3% 0;
+}
+
+.col-11{
+    width: 18%;
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    float: left;
 }
 
 /* css for footer */
