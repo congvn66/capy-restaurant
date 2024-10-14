@@ -11,7 +11,6 @@
 }
 
 .wrapper{
-
     padding: 1%;
     width: 80%;
     margin: 0 auto;
@@ -24,6 +23,60 @@
 .clearfix{
     float: none;
     clear: both;
+}
+
+.tbl-full{
+    width: 100%;
+}
+
+.tbl-30{
+    width: 30%;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align:left;
+}
+
+table tr td{
+    padding: 1%;
+}
+
+.button-primary{
+    background-color: #1e90ff;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-primary:hover{
+    background-color:#3742fa;
+}
+
+.button-secondary{
+    background-color: #4cd137;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-secondary:hover{
+    background-color:#44bd32;
+}
+
+.button-danger{
+    background-color: #e84118;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button-danger:hover{
+    background-color:#c23616;
 }
 
 /* css for menu */
