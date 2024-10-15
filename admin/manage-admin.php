@@ -5,6 +5,14 @@
                 <h1>admin management</h1>
                 <br />
 
+                <?php
+                    if(isset($_SESSION['add'])){
+                        echo $_SESSION['add'];
+                        unset($_SESSION['add']);
+                    } 
+                ?>
+                <br><br><br>
+
                 <!-- button add admin -->
                 <a href="add-admin.php" class="button-primary">add admin</a>
 
@@ -17,46 +25,36 @@
                         <th>username</th>
                         <th>actions</th>
                     </tr>
+                    
+                    <?php
+                        $sql = "SELECT * FROM admin";
+                        $res = mysqli_query($conn, $sql);
+                        $id_on_web = 1;
+                        if ($res == true) {
+                            $cnt = mysqli_num_rows($res); // get all rows from db
+                            if ($cnt > 0) {
+                                while($row = mysqli_fetch_assoc($res)) { // same with readLine
+                                    $id = $row['id'];
+                                    $full_name = $row['full_name'];
+                                    $username = $row['username'];
 
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>jDoe</td>
-                        <td>
-                            <a href="#" class="button-secondary">update</a>
-                            <a href="#" class="button-danger">delete</a>
-                        </td>
-                    </tr>
+                                    // display value to table
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $id_on_web++?></td>
+                                        <td><?php echo $full_name?></td>
+                                        <td><?php echo $username?></td>
+                                        <td>
+                                            <a href="#" class="button-secondary">update</a>
+                                            <a href="#" class="button-danger">delete</a>
+                                        </td>
+                                    </tr>
+                                    <?php
 
-                    <tr>
-                        <td>2</td>
-                        <td>John Doe</td>
-                        <td>jDoe</td>
-                        <td>
-                            <a href="#" class="button-secondary">update</a>
-                            <a href="#" class="button-danger">delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>John Doe</td>
-                        <td>jDoe</td>
-                        <td>
-                            <a href="#" class="button-secondary">update</a>
-                            <a href="#" class="button-danger">delete</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>John Doe</td>
-                        <td>jDoe</td>
-                        <td>
-                            <a href="#" class="button-secondary">update</a>
-                            <a href="#" class="button-danger">delete</a>
-                        </td>
-                    </tr>
+                                }
+                            }
+                        }
+                    ?>
                 </table>
 
             </div>

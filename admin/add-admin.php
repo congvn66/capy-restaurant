@@ -1,10 +1,16 @@
-<?php include('partials/menu.php'); ?>
 
+<?php include('partials/menu.php'); ?>
 <div class="main-content">
     <div class="wrapper">
         <h1>add admin</h1>
 
-        <br />
+        <br><br>
+        <?php
+            if(isset($_SESSION['add'])){
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            } 
+        ?>
         
         <form action="" method="POST">
             <table class="tbl-30">      
@@ -62,9 +68,25 @@
         ";
 
         // execute query
-        $conn = mysqli_connect('localhost', 'root', '') or die(mysqli_error()); // connect
-        $db_select = mysqli_select_db($conn, 'capy-restaurant') or die(mysqli_error()); // select database
-        $res = mysqli_query($conn, $sql) or die(mysqli_error());
+        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+        // check
+        if ($res == true) {
+            //echo "inserted";
+            // create session display
+            $_SESSION['add'] = "admin added.";
+
+            // redirect
+            header("location:".SITE_URL.'admin/manage-admin.php');
+
+            exit();
+        } else {
+            //echo "failed";
+            $_SESSION['add'] = "failed to add admin.";
+
+            // redirect
+            header("location:".SITE_URL.'admin/add-admin.php');
+        }
     } else {
         // not clicked.
         //echo "not clicked";
