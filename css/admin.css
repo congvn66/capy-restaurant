@@ -79,6 +79,14 @@ table tr td{
     background-color:#c23616;
 }
 
+.success{
+    color: #44bd32;
+}
+
+.error{
+    color: #e84118;
+}
+
 /* css for menu */
 
 .menu{

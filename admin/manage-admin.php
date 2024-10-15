@@ -9,7 +9,32 @@
                     if(isset($_SESSION['add'])){
                         echo $_SESSION['add'];
                         unset($_SESSION['add']);
-                    } 
+                    }
+                    
+                    if(isset($_SESSION['delete'])) {
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+
+                    if(isset($_SESSION['update'])) {
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
+                    }
+
+                    if(isset($_SESSION['admin-not-found'])) {
+                        echo $_SESSION['admin-not-found'];
+                        unset($_SESSION['admin-not-found']);
+                    }
+
+                    if(isset($_SESSION['password-not-match'])) {
+                        echo $_SESSION['password-not-match'];
+                        unset($_SESSION['password-not-match']);
+                    }
+
+                    if(isset($_SESSION['change-password'])) {
+                        echo $_SESSION['change-password'];
+                        unset($_SESSION['change-password']);
+                    }
                 ?>
                 <br><br><br>
 
@@ -45,8 +70,9 @@
                                         <td><?php echo $full_name?></td>
                                         <td><?php echo $username?></td>
                                         <td>
-                                            <a href="#" class="button-secondary">update</a>
-                                            <a href="#" class="button-danger">delete</a>
+                                            <a href="<?php echo SITE_URL;?>admin/change-admin-password.php?id=<?php echo $id?>" class="button-primary">change password</a>
+                                            <a href="<?php echo SITE_URL;?>admin/update-admin.php?id=<?php echo $id?>" class="button-secondary">update</a>
+                                            <a href="<?php echo SITE_URL;?>admin/delete-admin.php?id=<?php echo $id?>" class="button-danger">delete</a>
                                         </td>
                                     </tr>
                                     <?php
